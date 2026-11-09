@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.spec
+
+# Node / Electron
+node_modules/
+out/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Compilación
+build/
+dist/
+release/
+*.update.exe
+
+# Descargas de prueba
+descargas/
+
+# Entorno
+.env
+.env.*
+
+# Editor y sistema
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store

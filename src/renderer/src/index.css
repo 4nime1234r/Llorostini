@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root,
+[data-theme="Oscuro"] {
+  --radius: 0.625rem;
+  --background: #14161b;
+  --foreground: #e8eaf0;
+  --card: #1a1d23;
+  --card-foreground: #e8eaf0;
+  --popover: #1e2128;
+  --popover-foreground: #e8eaf0;
+  --primary: #5b8cff;
+  --primary-foreground: #ffffff;
+  --secondary: #252932;
+  --secondary-foreground: #e8eaf0;
+  --muted: #252932;
+  --muted-foreground: #8b93a5;
+  --accent: #2d323d;
+  --accent-foreground: #e8eaf0;
+  --destructive: #ff6b6b;
+  --success: #3ddc84;
+  --border: #2a2e39;
+  --input: #323744;
+  --ring: #5b8cff;
+  --sidebar: #111318;
+  --glow: rgb(91 140 255 / 0.18);
+}
+
+[data-theme="Claro"] {
+  --background: #f5f6f9;
+  --foreground: #1b1e27;
+  --card: #ffffff;
+  --card-foreground: #1b1e27;
+  --popover: #ffffff;
+  --popover-foreground: #1b1e27;
+  --primary: #2f63e0;
+  --primary-foreground: #ffffff;
+  --secondary: #e6e9ef;
+  --secondary-foreground: #1b1e27;
+  --muted: #eceef3;
+  --muted-foreground: #5f6675;
+  --accent: #e3e7ee;
+  --accent-foreground: #1b1e27;
+  --destructive: #c93838;
+  --success: #188a4a;
+  --border: #dde1e8;
+  --input: #cfd5df;
+  --ring: #2f63e0;
+  --sidebar: #eceef3;
+  --glow: rgb(47 99 224 / 0.12);
+}
+
+[data-theme="Cyberpunk"] {
+  --background: #0a0512;
+  --foreground: #f0eaff;
+  --card: #120823;
+  --card-foreground: #f0eaff;
+  --popover: #170a2b;
+  --popover-foreground: #f0eaff;
+  --primary: #e01fbd;
+  --primary-foreground: #ffffff;
+  --secondary: #1f1040;
+  --secondary-foreground: #f0eaff;
+  --muted: #1f1040;
+  --muted-foreground: #a38fd6;
+  --accent: #2b1660;
+  --accent-foreground: #f0eaff;
+  --destructive: #ff4d6d;
+  --success: #00f0a0;
+  --border: #2e1858;
+  --input: #42217c;
+  --ring: #ff4fd8;
+  --sidebar: #07030d;
+  --glow: rgb(224 31 189 / 0.25);
+}
+
+[data-theme="Minimalista"] {
+  --background: #111111;
+  --foreground: #f0f0f0;
+  --card: #171717;
+  --card-foreground: #f0f0f0;
+  --popover: #191919;
+  --popover-foreground: #f0f0f0;
+  --primary: #e6e6e6;
+  --primary-foreground: #0d0d0d;
+  --secondary: #1f1f1f;
+  --secondary-foreground: #f0f0f0;
+  --muted: #1f1f1f;
+  --muted-foreground: #8c8c8c;
+  --accent: #262626;
+  --accent-foreground: #f0f0f0;
+  --destructive: #e07a7a;
+  --success: #7fd3a0;
+  --border: #262626;
+  --input: #2e2e2e;
+  --ring: #bdbdbd;
+  --sidebar: #0c0c0c;
+  --glow: rgb(255 255 255 / 0.06);
+}
+
+@theme inline {
+  --font-sans: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased select-none;
+    font-size: 14px;
+  }
+  input,
+  textarea,
+  .selectable {
+    @apply select-text;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--input);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+.drag-region {
+  -webkit-app-region: drag;
+}
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+.animate-indeterminate {
+  animation: indeterminate 1.3s ease-in-out infinite;
+}
